@@ -16,9 +16,9 @@ class App extends Component {
       leagues: {
         "La Liga": "PD",
         "Premier League": "PL",
-        Eredivisie: "DED",
+        "Eredivisie": "DED",
         "Ligue 1": "FL1",
-        Bundesliga: "BL1",
+        "Bundesliga": "BL1",
         "Serie A": "SA"
       },
       buttons: []

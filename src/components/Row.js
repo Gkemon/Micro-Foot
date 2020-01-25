@@ -1,4 +1,5 @@
 import React from "react";
+import BootStrapButton from "react-bootstrap/Button";
 
 const Row = props => {
   return (
@@ -8,7 +9,10 @@ const Row = props => {
         <div className="crest">
           <img src={props.crestURI} alt="" />
         </div>
-        <button>{props.teamName}</button>
+        <BootStrapButton onClick={() =>
+          window.location = '/details/1344'}>
+          {props.teamName}
+        </BootStrapButton>
       </td>
       <td>{props.playedGames}</td>
       <td>{props.wins}</td>
