@@ -10,7 +10,7 @@ const Row = props => {
           <img src={props.crestURI} alt="" />
         </div>
         <BootStrapButton onClick={() =>
-          window.location = '/details/1344'}>
+          window.location = '/details/'+props.teamID}>
           {props.teamName}
         </BootStrapButton>
       </td>

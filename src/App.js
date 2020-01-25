@@ -62,10 +62,11 @@ class App extends Component {
             goalDifference,
             points
           } = item;
-          const { crestUrl, name } = item.team;
+          const { crestUrl, name,id } = item.team;
 
           return rows.push(
             <Row
+              teamID={id}
               key={index}
               position={position}
               crestURI={crestUrl}
