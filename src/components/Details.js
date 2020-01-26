@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Jumbotron } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import {
-  EmailShareButton
+  EmailShareButton,
   FacebookShareButton,
   InstapaperShareButton,
   LineShareButton,
+  FacebookMessengerShareButton,
   LinkedinShareButton,
+  FacebookMessengerIcon,
   LivejournalShareButton,
   MailruShareButton,
   OKShareButton,
@@ -20,6 +22,25 @@ import {
   VKShareButton,
   WhatsappShareButton,
   WorkplaceShareButton,
+  TwitterIcon,
+  LinkedinIcon,
+  PinterestIcon,
+  VKIcon,
+  OKIcon,
+  TelegramIcon,
+  WhatsappIcon,
+  RedditIcon,
+  TumblrIcon,
+  MailruIcon,
+  EmailIcon,
+  LivejournalIcon,
+  ViberIcon,
+  FacebookIcon,
+  WorkplaceIcon,
+  LineIcon,
+  PocketIcon,
+  InstapaperIcon,
+  WeiboIcon
 } from "react-share";
 class Details extends Component {
     constructor(props) {
@@ -98,57 +119,82 @@ class Details extends Component {
     }
     render() { 
         return (
-            <Jumbotron>
+          <Jumbotron>
+            <Card bg="light" className="text-center" style={{margin: 10}}>
+              <Card.Body>
+                <Card.Title style={{fontWeight: "bold"}}>
+                  Result of last match
+                </Card.Title>
+                <Card.Text>
+                  {this.state.homeTeam} - <b>{this.state.homeTeamGoal}</b> :
+                  <b> {this.state.awayTeamGoal} </b>- {this.state.awayTeam}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card bg="light" className="text-center" style={{margin: 10}}>
+              <Card.Body>
+                <Card.Title style={{fontWeight: "bold"}}>
+                  Result of last 5 matches performance
+                </Card.Title>
 
-                <Card bg="light" className="text-center" style={{ margin: 10 }}>
-                    <Card.Body>
-                        <Card.Title style={{ fontWeight: 'bold'  }}>Result of last match</Card.Title>
-                        <Card.Text>
-                            {this.state.homeTeam} - <b>{this.state.homeTeamGoal}</b> : 
-             <b> {this.state.awayTeamGoal} </b>- {this.state.awayTeam} 
-              </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card bg="light" className="text-center" style={{ margin: 10 }}>
-                    <Card.Body>
-                        <Card.Title style={{ fontWeight: 'bold' }}>Result of last 5 matches performance</Card.Title>
-                        
-                            {this.state.Performances.map((performance) =>
-                           {
-                                if (performance.includes('Winner')) {
-                                    return <Card.Text><span style={{ color: '#2e7d32' }} > {performance}
-                                    </span> 
-                                 </Card.Text>
-                                }
-                                else {
-                                    return <Card.Text><span style={{ color: '#f44336' }} > {performance}
-                                    </span>
-                                    </Card.Text>
-                                }
+                {this.state.Performances.map((performance) => {
+                  if (performance.includes("Winner")) {
+                    return (
+                      <Card.Text>
+                        <span style={{color: "#2e7d32"}}> {performance}</span>
+                      </Card.Text>
+                    );
+                  } else {
+                    return (
+                      <Card.Text>
+                        <span style={{color: "#f44336"}}> {performance}</span>
+                      </Card.Text>
+                    );
+                  }
+                })}
+              </Card.Body>
+            </Card>
+            <Card bg="light" className="text-center" style={{margin: 10}}>
+              <Card.Body>
+                <Card.Title style={{fontWeight: "bold"}}>
+                  Result of all matches in this season
+                </Card.Title>
 
-                           }
-                               
-                                
-                    )}
-                        
-                    </Card.Body>
-                </Card>
-                <Card bg="light" className="text-center" style={{ margin: 10 }}>
-                    <Card.Body>
-                        <Card.Title style={{ fontWeight: 'bold' }}>Result of all matches in this season</Card.Title>
-
-                        {this.state.matches.map(match =>
-
-                            <Card.Text> <span style={{ color: '#1a237e'}} >{match.homeTeam.name}</span> - <b>{match.score.fullTime.homeTeam}</b> :  
-    {' '}<b>{match.score.fullTime.awayTeam}</b>{' '}
-                                - <span style={{ color: '#1b5e20' }} >{match.awayTeam.name}</span></Card.Text>
-
-                        )} 
-                    <FacebookShareButton>Share</FacebookShareButton>
-                    </Card.Body>
-                </Card>
-            </Jumbotron>
-           );
+                {this.state.matches.map((match) => (
+                  <Card.Text>
+                    {" "}
+                    <span style={{color: "#1a237e"}}>
+                      {match.homeTeam.name}
+                    </span>{" "}
+                    - <b>{match.score.fullTime.homeTeam}</b> :{" "}
+                    <b>{match.score.fullTime.awayTeam}</b> -{" "}
+                    <span style={{color: "#1b5e20"}}>
+                      {match.awayTeam.name}
+                    </span>
+                  </Card.Text>
+                ))}
+              </Card.Body>
+            </Card>
+            <FacebookShareButton url={window.location.href}>
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
+            <TwitterShareButton url={window.location.href}>
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+            <FacebookMessengerShareButton url={window.location.href}>
+              <FacebookMessengerIcon size={32} round />
+            </FacebookMessengerShareButton>
+            <LinkedinShareButton url={window.location.href}>
+              <LinkedinIcon size={32} round />
+            </LinkedinShareButton>
+            <WhatsappShareButton url={window.location.href}>
+              <WhatsappIcon size={32} round />
+            </WhatsappShareButton>
+            <InstapaperShareButton url={window.location.href}>
+              <InstapaperIcon size={32} round />
+            </InstapaperShareButton>
+          </Jumbotron>
+        );
 
               
     }
