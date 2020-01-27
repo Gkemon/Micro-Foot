@@ -63,9 +63,9 @@ class Details extends Component {
         const Token = "b7d52e61c66f4a0194be725042ad4359",
             
             URL =
-                "http://api.football-data.org/v2/teams/" + 
+                "https://api.football-data.org/v2/teams/" + 
                 this.props.match.params.teamID+"/matches?status=FINISHED";
-
+      
         fetch(URL, { headers: { "X-Auth-Token": Token } })
             .then(response => response.json())
             .then(responseJson => {
