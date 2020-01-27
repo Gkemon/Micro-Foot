@@ -159,7 +159,12 @@ class Details extends Component {
                 <Card.Title style={{fontWeight: "bold"}}>
                   Result of all matches in this season
                 </Card.Title>
-
+                <Card.Text>
+                  <span style={{color: "#1a237e"}}>Home Team</span>
+                </Card.Text>
+                <Card.Text>
+                  <span style={{color: "#1b5e20"}}> ∎ Away Team</span>
+                </Card.Text>
                 {this.state.matches.map((match) => (
                   <Card.Text>
                     {" "}
