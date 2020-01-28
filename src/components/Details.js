@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Jumbotron } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
+import  LeagueInfo  from "../components/LeagueInfo";
+
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -51,6 +54,7 @@ class Details extends Component {
       homeTeamGoal : "",
       awayTeamGoal : "",
       Performances : [],
+      logoURL : "",
       matches:[]
     }
 }
@@ -63,14 +67,32 @@ class Details extends Component {
         const Token = "b7d52e61c66f4a0194be725042ad4359",
             
             URL =
-                "https://api.football-data.org/v2/teams/" + 
-                this.props.match.params.teamID+"/matches?status=FINISHED";
-      
+                "https://api.football-data.org/v2/teams/"+ 
+                this.props.match.params.teamID+"/matches?status=FINISHED",
+
+      teamUrl =
+        "https://api.football-data.org/v2/teams/" +
+        this.props.match.params.teamID;
+    
+
+      fetch(teamUrl, { headers: { "X-Auth-Token": Token } })
+        .then(response => response.json())
+        .then(responseJson => {
+          this.setState({
+            logoURL: responseJson.crestUrl
+          });
+
+
+        })
+        .catch(error => {
+          console.error(error);
+        });
+
         fetch(URL, { headers: { "X-Auth-Token": Token } })
             .then(response => response.json())
             .then(responseJson => {
                 
-        
+
                 console.log(responseJson.matches[Object.keys(responseJson.matches).
                     length-1].score.winner);
 
@@ -119,7 +141,23 @@ class Details extends Component {
     }
     render() { 
         return (
+          <div className="app">
+            <Navbar bg="dark" variant="dark">
+              <Navbar.Brand>
+                <img
+                  alt=""
+                  src="/football.png"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                />{' '}
+                Microfoot-Sports
+    </Navbar.Brand>
+            </Navbar>
           <Jumbotron>
+          
+              <LeagueInfo leagueCaption={this.state.logoURL} />
+         
             <Card bg="light" className="text-center" style={{margin: 10}}>
               <Card.Body>
                 <Card.Title style={{fontWeight: "bold"}}>
@@ -199,6 +237,7 @@ class Details extends Component {
               <InstapaperIcon size={32} round />
             </InstapaperShareButton>
           </Jumbotron>
+          </div>
         );
 
               

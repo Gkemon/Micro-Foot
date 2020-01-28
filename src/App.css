@@ -1,11 +1,14 @@
 .app {
   text-align: center;
   font-family: "Roboto", sans-serif;
-  max-width: 940px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 header {
+  margin-right: 175px;
+  text-align: right;
+  display: inline-block;
   padding: 1.2em 0;
 }
 
@@ -13,11 +16,9 @@ header button {
   margin-right: 15px;
   border: none;
   border-radius: 2px;
-  display: inline-block;
   height: 36px;
   line-height: 36px;
   padding: 0 2rem;
-  vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
   color: #fff;
   background-color: #26a69a;
@@ -29,7 +30,6 @@ header button {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  vertical-align: middle;
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
 }
@@ -50,7 +50,7 @@ header button:active {
 
 .league-info {
   margin-bottom: 1.2em;
-  align-self: center;
+  align-self: left;
 }
 
 .league-info h1 {
@@ -64,6 +64,7 @@ header button:active {
 }
 
 .standings {
+   max-width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
 }

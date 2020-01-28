@@ -5,6 +5,7 @@ import Button from "./components/Button";
 import Row from "./components/Row";
 import TableBody from "./components/TableBody";
 import LeagueInfo from "./components/LeagueInfo";
+import { Navbar } from "react-bootstrap";
 
 class App extends Component {
   constructor(props) {
@@ -108,9 +109,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div>
+        <Navbar bg="dark"   variant="dark">
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src="/football.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{' '}
+            Microfoot-Sports
+    </Navbar.Brand>
+        </Navbar>
         <Header>{this.state.buttons}</Header>
-        <div className="container">
+        <div className="container" >
           <LeagueInfo leagueCaption={this.state.leagueName} />
           <TableBody>{this.state.rows}</TableBody>
         </div>

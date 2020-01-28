@@ -7,7 +7,7 @@ import PremierLeague from "../img/PremierLeague.png";
 import SerieA from "../img/SerieA.png";
 
 const LeagueInfo = props => {
-  let imgSrc;
+  let imgSrc; 
   switch (props.leagueCaption) {
     case "Bundesliga":
       imgSrc = Bundesliga;
@@ -34,7 +34,7 @@ const LeagueInfo = props => {
       break;
 
     default:
-      imgSrc = LaLiga;
+      imgSrc = props.leagueCaption;
       break;
   }
 
